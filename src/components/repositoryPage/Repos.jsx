@@ -12,7 +12,7 @@ const Repos = (props) => {
      <div id='repoBox' className='sm:h-[90%]  sm:grid sm:grid-cols-2  sm:gap-y-2 sm:pl-3.5 sm:pt-2 sm:pb-3 sm:overflow-y-scroll'>
                 
                 {
-                  props.userRepo.map((elem ,idx)=>{
+                  props.userRepo?.map((elem ,idx)=>{
 
                   return (
                     <div key={idx} className='border border-[#5EEAD4] px-3 leading-5.5 bg-[#042f2e]  py-1 rounded-xl my-4 sm:my-0 sm:py-3 sm:w-[92%]   shrink-0 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-in-out'>

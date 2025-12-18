@@ -20,8 +20,13 @@ const App = () => {
   const fetchRepoData = async()=>{
         setUserRepo([]);
         setRepoLoading(true)
+
+        const encodedUsername = encodeURIComponent(username);
     try{
-      const response = await axios.get(`https://api.github.com/users/${username}/repos`);
+      const response = await axios.get(
+      `https://api.github.com/users/${encodedUsername}/repos`);
+
+
       setUserRepo(response.data);
       setFirstRender(false);
       setRepoLoading(false)
@@ -39,18 +44,19 @@ const App = () => {
       if(username==="") return;
       setFirstRender(false)
       setIsLoading(true)
+
+      const encodedUsername = encodeURIComponent(username);
     try {
       
-      const response = await axios.get(`https://api.github.com/users/${username}`);
+      const response = await axios.get(`https://api.github.com/users/${encodedUsername}`);
+
+
       fetchRepoData();
       setUserData(response.data);
       setIsLoading(false)
       setErrorMessage(false)     
-      console.log("fetched");
-      
-       
 
-      
+ 
     } 
     catch (error) {
       setIsLoading(false)
@@ -65,7 +71,7 @@ const App = () => {
     useEffect(() => {
       fetchData();
 
-      console.log("hey");
+
       
       
     
@@ -85,7 +91,7 @@ const App = () => {
 
       {(errorMessage && !isLoading) && <ErrorMessage/>}
 
-      {(!errorMessage&& !firstRender && !isLoading && userData.length !==0)&& <Profile userData={userData} setUserData = {setUserData} userRepo={userRepo} repoLoading={repoLoading}/>}
+      {(!errorMessage&& !firstRender && !isLoading && Object.keys(userData).length !==0)&& <Profile userData={userData} setUserData = {setUserData} userRepo={userRepo} repoLoading={repoLoading}/>}
 
       {(isLoading) && <Loader/>}
       

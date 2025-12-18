@@ -31,7 +31,7 @@ const ProfileCard = (props) => {
             </div>
 
             <div className='w-full flex justify-center'>
-                <button onClick={openGithub} className='text-slate-100 bg-[#042f2e]  w-[60%] my-1 py-1.5 sm:py-2 rounded-lg font-semibol sm:text-lg shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer'>View Profile</button>
+                <button onClick={openGithub} className='text-slate-100 bg-[#042f2e]  w-[60%] my-2.5 sm:my-1.5 py-1.5 sm:py-2 rounded-lg font-semibol sm:text-lg shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer'>View Profile</button>
             </div>
         </div>
         
